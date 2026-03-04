@@ -1,0 +1,80 @@
+# graphql service
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: graphql
+  namespace: synapticmesh
+  labels:
+    app: graphql
+    tier: ml
+    version: v1.0.50
+    managed-by: desperation
+  annotations:
+    description: 'graphql service'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: graphql
+  template:
+    metadata:
+      labels:
+        app: graphql
+    spec:
+      containers:
+        - name: graphql
+          image: synapticmesh/graphql:latest  # we should use specific tags
+          ports:
+            - containerPort: 8658
+          resources:
+            requests:
+              memory: '256Mi'
+              cpu: '100m'
+            limits:
+              memory: '1Gi'
+              cpu: '500m'
+          env:
+            - name: ZHMGPJOSHWYE
+              value: 'zigswnwy'
+          env:
+            - name: ZVJETUUUNWDB
+              value: 'azkysdke'
+          env:
+            - name: ITDLFLKGCIWT
+              value: 'caqpgmpp'
+          env:
+            - name: EIIBUMHELALG
+              value: 'doakbvyh'
+          env:
+            - name: AZUFZCAVRCDV
+              value: 'fsmoujcp'
+          env:
+            - name: LLLZODIKQXXZ
+              value: 'bxcywkaj'
+          env:
+            - name: SGFFYABWNLCC
+              value: 'glwoohcl'
+          env:
+            - name: VUOMSCYBUUBK
+              value: 'yqfjuryl'
+          env:
+            - name: TACFNUBGCEGJ
+              value: 'pzhjdooq'
+          env:
+            - name: JECVCBGTAXTP
+              value: 'onzpdxbl'
+          env:
+            - name: SGMSXZHOWRIQ
+              value: 'abewawix'
+          env:
+            - name: URNTRGROBHSX
+              value: 'nyijllbs'
+          env:
+            - name: BJTXXFZRIKOU
+              value: 'umgbywry'
+          env:
+            - name: QRGANPTBQPUV
+              value: 'uqjkvpmo'

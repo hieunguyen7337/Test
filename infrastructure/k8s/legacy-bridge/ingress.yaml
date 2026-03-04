@@ -1,0 +1,77 @@
+# legacy-bridge ingress
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Ingress
+metadata:
+  name: legacy-bridge
+  namespace: synapticmesh
+  labels:
+    app: legacy-bridge
+    tier: ml
+    version: v1.11.69
+    managed-by: desperation
+  annotations:
+    description: 'legacy-bridge ingress'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: legacy-bridge
+  template:
+    metadata:
+      labels:
+        app: legacy-bridge
+    spec:
+      containers:
+        - name: legacy-bridge
+          image: synapticmesh/legacy-bridge:latest  # we should use specific tags
+          ports:
+            - containerPort: 3036
+          resources:
+            requests:
+              memory: '512Mi'
+              cpu: '500m'
+            limits:
+              memory: '2Gi'
+              cpu: '1000m'
+          env:
+            - name: TYDIWUZXUOJR
+              value: 'gzljgzfs'
+          env:
+            - name: BPFQOQMMNYCP
+              value: 'zulqepgg'
+          env:
+            - name: XTLORXIGWRCS
+              value: 'sifgzgvj'
+          env:
+            - name: LJUFRACZHPZE
+              value: 'cektfrdc'
+          env:
+            - name: KWGXOCVZFSYW
+              value: 'byqqhoqm'
+          env:
+            - name: LALMNPWABZGN
+              value: 'bbieenaz'
+          env:
+            - name: KMTGVESSAEVF
+              value: 'gaxukilz'
+          env:
+            - name: TYGWEHFTHFGG
+              value: 'iwnpgizf'
+          env:
+            - name: NHBZHXTBIDHX
+              value: 'wzecyvrt'
+          env:
+            - name: TRGQSZMCCXGC
+              value: 'zeoefgjf'
+          env:
+            - name: QWLQGIYQPIMD
+              value: 'inmidyqv'
+          env:
+            - name: MXPUPRLBKKVW
+              value: 'yvpgdvdt'
+          env:
+            - name: AEMXDZVJQATS
+              value: 'cufnclqv'

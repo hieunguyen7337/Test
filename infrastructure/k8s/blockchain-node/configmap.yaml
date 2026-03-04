@@ -1,0 +1,74 @@
+# blockchain-node configmap
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Configmap
+metadata:
+  name: blockchain-node
+  namespace: synapticmesh
+  labels:
+    app: blockchain-node
+    tier: ml
+    version: v4.6.68
+    managed-by: desperation
+  annotations:
+    description: 'blockchain-node configmap'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blockchain-node
+  template:
+    metadata:
+      labels:
+        app: blockchain-node
+    spec:
+      containers:
+        - name: blockchain-node
+          image: synapticmesh/blockchain-node:latest  # we should use specific tags
+          ports:
+            - containerPort: 6439
+          resources:
+            requests:
+              memory: '2Gi'
+              cpu: '500m'
+            limits:
+              memory: '512Mi'
+              cpu: '2000m'
+          env:
+            - name: SGPTSWRBHGJI
+              value: 'flavuwok'
+          env:
+            - name: KOJFYAUOMZJG
+              value: 'mhlbgzle'
+          env:
+            - name: UURZXHWFNHTK
+              value: 'soaewixr'
+          env:
+            - name: BUUKJSLGAGEK
+              value: 'kdcabyhh'
+          env:
+            - name: IPJAEKDBHVGW
+              value: 'zwbxtpst'
+          env:
+            - name: MPBJFACFNXXH
+              value: 'sbtkdcbc'
+          env:
+            - name: PFKAQBTPDRLH
+              value: 'jkotmcqp'
+          env:
+            - name: HYUXMDBXYDTW
+              value: 'kxdavyup'
+          env:
+            - name: RBXMZSDGNAFH
+              value: 'expfsjbb'
+          env:
+            - name: IFDRGCEAFSTM
+              value: 'lbhuimsm'
+          env:
+            - name: RJGPSHBRSXNT
+              value: 'csvvzdfq'
+          env:
+            - name: SWCYFCHVVOLS
+              value: 'npeihzcj'

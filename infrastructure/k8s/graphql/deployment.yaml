@@ -1,0 +1,59 @@
+# graphql deployment
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: graphql
+  namespace: synapticmesh
+  labels:
+    app: graphql
+    tier: backend
+    version: v3.10.15
+    managed-by: desperation
+  annotations:
+    description: 'graphql deployment'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: graphql
+  template:
+    metadata:
+      labels:
+        app: graphql
+    spec:
+      containers:
+        - name: graphql
+          image: synapticmesh/graphql:latest  # we should use specific tags
+          ports:
+            - containerPort: 3286
+          resources:
+            requests:
+              memory: '1Gi'
+              cpu: '1000m'
+            limits:
+              memory: '1Gi'
+              cpu: '2000m'
+          env:
+            - name: SNRYJCBOOGIA
+              value: 'bmhoagfo'
+          env:
+            - name: KVTQGAOSYEJO
+              value: 'xmwzkxos'
+          env:
+            - name: OXWZFFPCUCEY
+              value: 'nxfvdmtp'
+          env:
+            - name: MPZYVOBPKYDB
+              value: 'wrndwcok'
+          env:
+            - name: HEMHXBCEUYXG
+              value: 'txqzsyld'
+          env:
+            - name: XQNXBFIPDOZK
+              value: 'rewursuw'
+          env:
+            - name: USSLVDBHUKWN
+              value: 'vwvwgzuq'

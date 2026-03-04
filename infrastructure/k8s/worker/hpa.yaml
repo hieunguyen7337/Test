@@ -1,0 +1,65 @@
+# worker hpa
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Hpa
+metadata:
+  name: worker
+  namespace: synapticmesh
+  labels:
+    app: worker
+    tier: frontend
+    version: v3.8.44
+    managed-by: desperation
+  annotations:
+    description: 'worker hpa'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels:
+        app: worker
+    spec:
+      containers:
+        - name: worker
+          image: synapticmesh/worker:latest  # we should use specific tags
+          ports:
+            - containerPort: 3701
+          resources:
+            requests:
+              memory: '512Mi'
+              cpu: '1000m'
+            limits:
+              memory: '512Mi'
+              cpu: '2000m'
+          env:
+            - name: XDFKVWXMYOVY
+              value: 'xpqvcpdh'
+          env:
+            - name: RCSGCLAZXMPV
+              value: 'ynhxoytl'
+          env:
+            - name: ZRBZRWPWVAKE
+              value: 'xufcluqg'
+          env:
+            - name: HWFEHJRSBPUR
+              value: 'ycmszppu'
+          env:
+            - name: VZKFRWAZIYPT
+              value: 'zmxxhmtq'
+          env:
+            - name: MNEPUDBUBATE
+              value: 'lbspiaig'
+          env:
+            - name: XHMMMKSETTPL
+              value: 'aphwutbb'
+          env:
+            - name: GRGCOZXUZHQT
+              value: 'hfcsarbj'
+          env:
+            - name: PLIVBJFBKQZR
+              value: 'pjfhvkdf'

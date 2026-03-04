@@ -1,0 +1,224 @@
+version: '3.9'
+
+# Welcome to container hell
+# There are 23 services here. Yes, all of them are necessary.
+# No, I will not explain why.
+
+services:
+  # ===== DATABASES (pick one? no, pick all) =====
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: synapticmesh
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123  # TODO: change this before prod
+      # UPDATE 2023-06-15: this is now in prod
+      # UPDATE 2023-09-01: we changed it to password1234
+      # UPDATE 2024-01-10: we changed it back
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  postgres-readonly:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: synapticmesh_readonly
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+    ports:
+      - "5433:5432"
+    depends_on:
+      - postgres
+
+  postgres-analytics:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: synapticmesh_analytics
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+    ports:
+      - "5434:5432"
+
+  mongo:
+    image: mongo:7
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    command: redis-server --requirepass password123
+
+  redis-cache:
+    image: redis:7-alpine
+    ports:
+      - "6380:6379"
+    command: redis-server --requirepass password123
+
+  redis-sessions:
+    image: redis:7-alpine
+    ports:
+      - "6381:6379"
+    command: redis-server --requirepass password123
+
+  redis-queue:
+    image: redis:7-alpine
+    ports:
+      - "6382:6379"
+    command: redis-server --requirepass password123
+
+  elasticsearch:
+    image: elasticsearch:8.11.0
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+
+  # ===== BACKEND SERVICES =====
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    depends_on:
+      - postgres
+      - mongo
+      - redis
+      - elasticsearch
+    environment:
+      - NODE_ENV=development
+      - VIBE_CHECK=immaculate
+
+  api-python:
+    build:
+      context: ./backend-python
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - mongo
+      - redis
+
+  graphql:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.graphql
+    ports:
+      - "4001:4001"
+    depends_on:
+      - api
+
+  websocket:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.websocket
+    ports:
+      - "4002:4002"
+    depends_on:
+      - redis
+
+  grpc:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.grpc
+    ports:
+      - "50051:50051"
+    depends_on:
+      - api
+
+  # ===== ML SERVICES =====
+  ml-api:
+    build:
+      context: ./ml
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    volumes:
+      - model_data:/app/models
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    # ^ good luck running this locally lmao
+
+  ml-worker:
+    build:
+      context: ./ml
+      dockerfile: Dockerfile.worker
+    depends_on:
+      - ml-api
+      - redis-queue
+
+  # ===== FRONTEND =====
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+
+  frontend-admin:
+    build:
+      context: ./frontend-v2
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+
+  # ===== BLOCKCHAIN (why) =====
+  blockchain-node:
+    build:
+      context: ./blockchain
+      dockerfile: Dockerfile
+    ports:
+      - "8545:8545"
+    # This service hashes the current timestamp every 30 seconds
+    # The investors think it's important
+
+  # ===== MONITORING =====
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3002:3000"
+    depends_on:
+      - prometheus
+
+  # ===== THE FORBIDDEN SERVICE =====
+  legacy-bridge:
+    build:
+      context: ./scripts/legacy
+      dockerfile: Dockerfile
+    ports:
+      - "6969:6969"
+    # DO NOT REMOVE THIS SERVICE
+    # We don't know what it does but last time someone
+    # stopped it, all of production went down for 6 hours
+    # Created by: dave (dave no longer works here)
+    # Date: 2019-03-14
+    # Reason: unknown
+
+volumes:
+  postgres_data:
+  mongo_data:
+  es_data:
+  model_data:

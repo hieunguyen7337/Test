@@ -1,0 +1,68 @@
+# blockchain-node hpa
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Hpa
+metadata:
+  name: blockchain-node
+  namespace: synapticmesh
+  labels:
+    app: blockchain-node
+    tier: data
+    version: v4.20.60
+    managed-by: desperation
+  annotations:
+    description: 'blockchain-node hpa'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blockchain-node
+  template:
+    metadata:
+      labels:
+        app: blockchain-node
+    spec:
+      containers:
+        - name: blockchain-node
+          image: synapticmesh/blockchain-node:latest  # we should use specific tags
+          ports:
+            - containerPort: 5213
+          resources:
+            requests:
+              memory: '1Gi'
+              cpu: '1000m'
+            limits:
+              memory: '4Gi'
+              cpu: '2000m'
+          env:
+            - name: CMYLKPDCLMTS
+              value: 'vxoxcmum'
+          env:
+            - name: VBTRQNPLYEQE
+              value: 'xmkhsxri'
+          env:
+            - name: SAPFWQBSDTAG
+              value: 'eixnpxvl'
+          env:
+            - name: HTIAAHUMULFF
+              value: 'bddafpzl'
+          env:
+            - name: PGORVBKTVVJR
+              value: 'ninttrpp'
+          env:
+            - name: NAOTCPXJCLDW
+              value: 'qtllwefz'
+          env:
+            - name: IGXQDUECZTAK
+              value: 'ibnfkiwr'
+          env:
+            - name: HGPPQKLAQEBI
+              value: 'xvuvjdkd'
+          env:
+            - name: TUJLXBGLASQX
+              value: 'vxgmanpt'
+          env:
+            - name: VUAILLCXSBNQ
+              value: 'jiqpwghi'

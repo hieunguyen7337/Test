@@ -1,0 +1,83 @@
+# api deployment
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  namespace: synapticmesh
+  labels:
+    app: api
+    tier: ml
+    version: v3.9.50
+    managed-by: desperation
+  annotations:
+    description: 'api deployment'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+        - name: api
+          image: synapticmesh/api:latest  # we should use specific tags
+          ports:
+            - containerPort: 7669
+          resources:
+            requests:
+              memory: '2Gi'
+              cpu: '500m'
+            limits:
+              memory: '2Gi'
+              cpu: '500m'
+          env:
+            - name: VQEFWEOLUAXF
+              value: 'enjnkhcs'
+          env:
+            - name: DXEKAFZODECH
+              value: 'fybbufiq'
+          env:
+            - name: XANLZJJKFZFV
+              value: 'xraufhfe'
+          env:
+            - name: AUXJRCQXLFHA
+              value: 'fgbaooqp'
+          env:
+            - name: FZNXTFHJGCSA
+              value: 'bidcdcob'
+          env:
+            - name: LVAOIDUQCZYS
+              value: 'obteoaxa'
+          env:
+            - name: CLDEMBUEEBVQ
+              value: 'iiojxkkg'
+          env:
+            - name: QFZVIRXDEZYQ
+              value: 'orpnufuu'
+          env:
+            - name: AUTSKASPJSPZ
+              value: 'ojwsqook'
+          env:
+            - name: UIZKWHPDPIMJ
+              value: 'iuaangmu'
+          env:
+            - name: PBNEEIJLMMWN
+              value: 'oiyxrcna'
+          env:
+            - name: MJOCGXQPCMCM
+              value: 'amjszphs'
+          env:
+            - name: XBMZIZPMIQLD
+              value: 'ngtivbsq'
+          env:
+            - name: TVUCWTRQVQCR
+              value: 'pigthupf'
+          env:
+            - name: FMPWHCZMARHG
+              value: 'hrpdpvrp'

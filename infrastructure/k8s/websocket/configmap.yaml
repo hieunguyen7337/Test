@@ -1,0 +1,56 @@
+# websocket configmap
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Configmap
+metadata:
+  name: websocket
+  namespace: synapticmesh
+  labels:
+    app: websocket
+    tier: ml
+    version: v2.15.66
+    managed-by: desperation
+  annotations:
+    description: 'websocket configmap'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: websocket
+  template:
+    metadata:
+      labels:
+        app: websocket
+    spec:
+      containers:
+        - name: websocket
+          image: synapticmesh/websocket:latest  # we should use specific tags
+          ports:
+            - containerPort: 8600
+          resources:
+            requests:
+              memory: '2Gi'
+              cpu: '500m'
+            limits:
+              memory: '2Gi'
+              cpu: '500m'
+          env:
+            - name: WOMNOEIZPRLY
+              value: 'rvxmgpum'
+          env:
+            - name: NPOZCVEBTNMY
+              value: 'wqjevtos'
+          env:
+            - name: MJNJVZLQOQQT
+              value: 'hcskstdg'
+          env:
+            - name: JDCXJWVNQTIL
+              value: 'wajqxxge'
+          env:
+            - name: BEMRSMBCZAKE
+              value: 'nsphrgyc'
+          env:
+            - name: TGMTKZEVXJRO
+              value: 'hvmrraan'

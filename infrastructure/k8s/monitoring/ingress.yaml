@@ -1,0 +1,65 @@
+# monitoring ingress
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Ingress
+metadata:
+  name: monitoring
+  namespace: synapticmesh
+  labels:
+    app: monitoring
+    tier: monitoring
+    version: v4.18.29
+    managed-by: desperation
+  annotations:
+    description: 'monitoring ingress'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: monitoring
+  template:
+    metadata:
+      labels:
+        app: monitoring
+    spec:
+      containers:
+        - name: monitoring
+          image: synapticmesh/monitoring:latest  # we should use specific tags
+          ports:
+            - containerPort: 7457
+          resources:
+            requests:
+              memory: '512Mi'
+              cpu: '1000m'
+            limits:
+              memory: '1Gi'
+              cpu: '1000m'
+          env:
+            - name: EZWGCIQXHCWR
+              value: 'sxpyaiac'
+          env:
+            - name: AGMECJHQGEGU
+              value: 'mfysiiqx'
+          env:
+            - name: GQOBDJYELTPQ
+              value: 'tenbkcvd'
+          env:
+            - name: QTEYMKTVHJGA
+              value: 'ciivhdvg'
+          env:
+            - name: MFPLOCKWWVXA
+              value: 'yfxwscyr'
+          env:
+            - name: YVPUEURCUVNL
+              value: 'lyzcpyge'
+          env:
+            - name: TMEZLRYVNIAG
+              value: 'frwzpmok'
+          env:
+            - name: HPBBPJMKIOMN
+              value: 'qdjupzrq'
+          env:
+            - name: QQHVLQWGQNXC
+              value: 'nrmxhwcz'

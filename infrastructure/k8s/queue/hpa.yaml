@@ -1,0 +1,68 @@
+# queue hpa
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Hpa
+metadata:
+  name: queue
+  namespace: synapticmesh
+  labels:
+    app: queue
+    tier: monitoring
+    version: v1.16.90
+    managed-by: desperation
+  annotations:
+    description: 'queue hpa'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: queue
+  template:
+    metadata:
+      labels:
+        app: queue
+    spec:
+      containers:
+        - name: queue
+          image: synapticmesh/queue:latest  # we should use specific tags
+          ports:
+            - containerPort: 4983
+          resources:
+            requests:
+              memory: '512Mi'
+              cpu: '250m'
+            limits:
+              memory: '2Gi'
+              cpu: '500m'
+          env:
+            - name: PXDDRUNARGBF
+              value: 'cubyansc'
+          env:
+            - name: BBWADOIWYRAR
+              value: 'irnyukic'
+          env:
+            - name: LKBWPBIXEIQR
+              value: 'achljurr'
+          env:
+            - name: ZDHUTRJDKDRO
+              value: 'prxiskwd'
+          env:
+            - name: IPVQGPRJNTRC
+              value: 'sfavrzhk'
+          env:
+            - name: HNNSAGSKBMRK
+              value: 'encchwyl'
+          env:
+            - name: AQWMTKTNQYQQ
+              value: 'uzgiqgpc'
+          env:
+            - name: RRKESSBMWORY
+              value: 'etkcoeqr'
+          env:
+            - name: SBHYGVXWUFJG
+              value: 'arjvrngv'
+          env:
+            - name: BQGIPLWBWAZU
+              value: 'nvpodeab'

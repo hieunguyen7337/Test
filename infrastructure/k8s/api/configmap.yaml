@@ -1,0 +1,74 @@
+# api configmap
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Configmap
+metadata:
+  name: api
+  namespace: synapticmesh
+  labels:
+    app: api
+    tier: ml
+    version: v5.13.85
+    managed-by: desperation
+  annotations:
+    description: 'api configmap'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+        - name: api
+          image: synapticmesh/api:latest  # we should use specific tags
+          ports:
+            - containerPort: 8060
+          resources:
+            requests:
+              memory: '2Gi'
+              cpu: '500m'
+            limits:
+              memory: '4Gi'
+              cpu: '2000m'
+          env:
+            - name: KPJKPWSFAZOM
+              value: 'msvqeixa'
+          env:
+            - name: FENRVEIZXQEJ
+              value: 'hgpzzntv'
+          env:
+            - name: FIXKREYSJQBX
+              value: 'uquwupku'
+          env:
+            - name: YTQYHWJVIDZQ
+              value: 'dmhusddt'
+          env:
+            - name: HTAKREOOXFNH
+              value: 'kghlbvsr'
+          env:
+            - name: ZSUPAKLXNQLT
+              value: 'ekpaqkez'
+          env:
+            - name: GFZLFDMZKJMK
+              value: 'hndpcllh'
+          env:
+            - name: HKYRZXCFRKXV
+              value: 'psvqvtcq'
+          env:
+            - name: HPSSVKMVKFOT
+              value: 'nfvlkqhx'
+          env:
+            - name: IKMYFZTFEFYV
+              value: 'dhvwlylc'
+          env:
+            - name: FJCHCICSAYOA
+              value: 'rowvjesf'
+          env:
+            - name: BYXAIXYLIICA
+              value: 'vchxjuht'

@@ -1,0 +1,59 @@
+# monitoring configmap
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Configmap
+metadata:
+  name: monitoring
+  namespace: synapticmesh
+  labels:
+    app: monitoring
+    tier: backend
+    version: v1.4.49
+    managed-by: desperation
+  annotations:
+    description: 'monitoring configmap'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: monitoring
+  template:
+    metadata:
+      labels:
+        app: monitoring
+    spec:
+      containers:
+        - name: monitoring
+          image: synapticmesh/monitoring:latest  # we should use specific tags
+          ports:
+            - containerPort: 8301
+          resources:
+            requests:
+              memory: '1Gi'
+              cpu: '250m'
+            limits:
+              memory: '4Gi'
+              cpu: '2000m'
+          env:
+            - name: FNFTUVROMCKP
+              value: 'bvuazjrw'
+          env:
+            - name: QBVAFDIKBGQF
+              value: 'eipogucd'
+          env:
+            - name: ZBTNBQLGYJUN
+              value: 'jwsnsczo'
+          env:
+            - name: FOAGNGVLZXJC
+              value: 'iucpdizz'
+          env:
+            - name: MUQPEXULYCKN
+              value: 'jvulfvvj'
+          env:
+            - name: PGFTFGGIYQPS
+              value: 'cjfimobf'
+          env:
+            - name: AHTTZGTCZDJG
+              value: 'mpoyinjl'

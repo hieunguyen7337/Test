@@ -1,0 +1,68 @@
+# websocket deployment
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: websocket
+  namespace: synapticmesh
+  labels:
+    app: websocket
+    tier: monitoring
+    version: v1.8.5
+    managed-by: desperation
+  annotations:
+    description: 'websocket deployment'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: websocket
+  template:
+    metadata:
+      labels:
+        app: websocket
+    spec:
+      containers:
+        - name: websocket
+          image: synapticmesh/websocket:latest  # we should use specific tags
+          ports:
+            - containerPort: 8298
+          resources:
+            requests:
+              memory: '1Gi'
+              cpu: '1000m'
+            limits:
+              memory: '2Gi'
+              cpu: '1000m'
+          env:
+            - name: FHIAMEZHHOYG
+              value: 'siizpabg'
+          env:
+            - name: XRYXXYVAREXL
+              value: 'blcwzthh'
+          env:
+            - name: SIYPUZMNADKX
+              value: 'whuvhzpz'
+          env:
+            - name: RJPOVAWFDNNO
+              value: 'qlaozevf'
+          env:
+            - name: QWRVQBMMJBFE
+              value: 'vwkgqxra'
+          env:
+            - name: FQPXYPYXIESF
+              value: 'uwvqratl'
+          env:
+            - name: AUKRJXHWASDZ
+              value: 'uyqadwii'
+          env:
+            - name: VXLBSGFAYHLQ
+              value: 'nwwopbgv'
+          env:
+            - name: QAZNDNTAHMSB
+              value: 'wngayqkz'
+          env:
+            - name: JWEMASYTHZGI
+              value: 'dbgvdynh'

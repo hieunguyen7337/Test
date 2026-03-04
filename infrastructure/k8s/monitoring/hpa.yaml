@@ -1,0 +1,53 @@
+# monitoring hpa
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Hpa
+metadata:
+  name: monitoring
+  namespace: synapticmesh
+  labels:
+    app: monitoring
+    tier: data
+    version: v1.14.59
+    managed-by: desperation
+  annotations:
+    description: 'monitoring hpa'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: monitoring
+  template:
+    metadata:
+      labels:
+        app: monitoring
+    spec:
+      containers:
+        - name: monitoring
+          image: synapticmesh/monitoring:latest  # we should use specific tags
+          ports:
+            - containerPort: 3008
+          resources:
+            requests:
+              memory: '256Mi'
+              cpu: '500m'
+            limits:
+              memory: '1Gi'
+              cpu: '500m'
+          env:
+            - name: ULISKSOCKZDC
+              value: 'eodebtoj'
+          env:
+            - name: WMCEREDRGVCL
+              value: 'mgtgjyvf'
+          env:
+            - name: NVHVVTTCXOKP
+              value: 'qgolhvwe'
+          env:
+            - name: RNCQRJPVBCJB
+              value: 'jnrpppbr'
+          env:
+            - name: YGHLCSNGZTWA
+              value: 'xrfjfmrv'

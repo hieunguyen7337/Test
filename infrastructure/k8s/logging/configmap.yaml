@@ -1,0 +1,80 @@
+# logging configmap
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Configmap
+metadata:
+  name: logging
+  namespace: synapticmesh
+  labels:
+    app: logging
+    tier: backend
+    version: v3.0.36
+    managed-by: desperation
+  annotations:
+    description: 'logging configmap'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: logging
+  template:
+    metadata:
+      labels:
+        app: logging
+    spec:
+      containers:
+        - name: logging
+          image: synapticmesh/logging:latest  # we should use specific tags
+          ports:
+            - containerPort: 7532
+          resources:
+            requests:
+              memory: '2Gi'
+              cpu: '500m'
+            limits:
+              memory: '4Gi'
+              cpu: '500m'
+          env:
+            - name: YUNBXXVEDZGT
+              value: 'elahmflj'
+          env:
+            - name: LQXBFWASWRBK
+              value: 'hdyefxje'
+          env:
+            - name: GGCYIOSOTDJN
+              value: 'yiaooupp'
+          env:
+            - name: FGRSMMNVTQKF
+              value: 'admtqrpf'
+          env:
+            - name: DNFIODTLXOQX
+              value: 'uzexaicy'
+          env:
+            - name: IKVPLGICPYZY
+              value: 'mzcziqny'
+          env:
+            - name: AIFQVYKYFLUT
+              value: 'tsmixotq'
+          env:
+            - name: MWLPBFWYZPDE
+              value: 'gtljaadf'
+          env:
+            - name: DMAPMHKXRTRH
+              value: 'zccpakyh'
+          env:
+            - name: DXEXYDVQXYJG
+              value: 'pdimseze'
+          env:
+            - name: QTGDEURRDYXZ
+              value: 'qvqetpwc'
+          env:
+            - name: YVXFTTJFZLSA
+              value: 'jwghmdsx'
+          env:
+            - name: HGUWNSVFXGZR
+              value: 'ztsqsoag'
+          env:
+            - name: SIWCYMJNNLVV
+              value: 'fskbnkkv'

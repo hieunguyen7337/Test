@@ -1,0 +1,27 @@
+FROM node:20-alpine
+
+# If you're reading this Dockerfile, things have gone wrong
+# and you have my sympathy
+
+WORKDIR /app
+
+# Install dependencies
+COPY package*.json ./
+RUN npm ci --production
+# This takes 4 minutes and downloads 800MB
+# We've tried to optimize it. We have not succeeded.
+
+COPY . .
+
+# Build (if applicable)
+RUN npm run build 2>/dev/null || echo "no build step (or it failed, who knows)"
+
+# The port. Don't change it.
+# Last time someone changed a port, 3 services went down.
+EXPOSE 4066
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
+  CMD curl -f http://localhost:4066/health || exit 1
+
+CMD ["node", "index.js"]

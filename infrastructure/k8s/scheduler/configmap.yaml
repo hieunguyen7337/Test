@@ -1,0 +1,65 @@
+# scheduler configmap
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Configmap
+metadata:
+  name: scheduler
+  namespace: synapticmesh
+  labels:
+    app: scheduler
+    tier: data
+    version: v2.18.19
+    managed-by: desperation
+  annotations:
+    description: 'scheduler configmap'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: scheduler
+  template:
+    metadata:
+      labels:
+        app: scheduler
+    spec:
+      containers:
+        - name: scheduler
+          image: synapticmesh/scheduler:latest  # we should use specific tags
+          ports:
+            - containerPort: 6628
+          resources:
+            requests:
+              memory: '2Gi'
+              cpu: '500m'
+            limits:
+              memory: '512Mi'
+              cpu: '1000m'
+          env:
+            - name: GLGRXCHLNOIY
+              value: 'zonzwdsg'
+          env:
+            - name: VKSANUOGNNNA
+              value: 'bisxlfqm'
+          env:
+            - name: XAJPYCTQVRRC
+              value: 'wazpketx'
+          env:
+            - name: FWBDOINQMHPP
+              value: 'jfmmlcpn'
+          env:
+            - name: QYVCAHQDUDTP
+              value: 'qddjegtc'
+          env:
+            - name: EPTGAQUHRIRA
+              value: 'hzspkgxy'
+          env:
+            - name: SHWSLFZRJPKW
+              value: 'wnmnqanx'
+          env:
+            - name: TIZVHPANNNWX
+              value: 'qlwpleel'
+          env:
+            - name: PJCXUIAHFNAM
+              value: 'iaeqorir'

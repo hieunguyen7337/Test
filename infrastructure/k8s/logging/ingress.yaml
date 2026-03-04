@@ -1,0 +1,77 @@
+# logging ingress
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Ingress
+metadata:
+  name: logging
+  namespace: synapticmesh
+  labels:
+    app: logging
+    tier: monitoring
+    version: v5.8.34
+    managed-by: desperation
+  annotations:
+    description: 'logging ingress'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: logging
+  template:
+    metadata:
+      labels:
+        app: logging
+    spec:
+      containers:
+        - name: logging
+          image: synapticmesh/logging:latest  # we should use specific tags
+          ports:
+            - containerPort: 7040
+          resources:
+            requests:
+              memory: '1Gi'
+              cpu: '250m'
+            limits:
+              memory: '4Gi'
+              cpu: '1000m'
+          env:
+            - name: ZWNAUBRSTXPZ
+              value: 'vfrejpfl'
+          env:
+            - name: GSEOXKVSQRMM
+              value: 'nkflatei'
+          env:
+            - name: QUERMAZTYXIS
+              value: 'ulkntqxu'
+          env:
+            - name: DVWFNEFVGSPJ
+              value: 'jxwkmnay'
+          env:
+            - name: EOYOTQSGZSOT
+              value: 'yzzbukms'
+          env:
+            - name: CLEKKALZXPHB
+              value: 'eisjueft'
+          env:
+            - name: QCUQZJVYWAAX
+              value: 'cgpkvkga'
+          env:
+            - name: MHUNDNEYSMRX
+              value: 'srzyqbwm'
+          env:
+            - name: DDYYQRENDVGX
+              value: 'ueprarsk'
+          env:
+            - name: QQRACMTEEAMT
+              value: 'bspycceb'
+          env:
+            - name: OOPCTIBALIBC
+              value: 'bwnlllvd'
+          env:
+            - name: VAOBKHKUEKLL
+              value: 'mnnocsfj'
+          env:
+            - name: HSMUXWALLGYS
+              value: 'vsvaekgd'

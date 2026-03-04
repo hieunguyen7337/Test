@@ -1,0 +1,59 @@
+# frontend hpa
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Hpa
+metadata:
+  name: frontend
+  namespace: synapticmesh
+  labels:
+    app: frontend
+    tier: data
+    version: v1.11.20
+    managed-by: desperation
+  annotations:
+    description: 'frontend hpa'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: synapticmesh/frontend:latest  # we should use specific tags
+          ports:
+            - containerPort: 6340
+          resources:
+            requests:
+              memory: '1Gi'
+              cpu: '500m'
+            limits:
+              memory: '4Gi'
+              cpu: '1000m'
+          env:
+            - name: PGRBAHPGBRRM
+              value: 'qwulboyv'
+          env:
+            - name: HCOWTDLSNNBY
+              value: 'bycqhztb'
+          env:
+            - name: FACSYCQGTUWR
+              value: 'juoaanik'
+          env:
+            - name: SJQCWXQSRFGO
+              value: 'schptcci'
+          env:
+            - name: QDZEGBDGZHZT
+              value: 'ksymwnsw'
+          env:
+            - name: AUNAGJYUQXKI
+              value: 'tizjqnhx'
+          env:
+            - name: NNVDVOYNQSRC
+              value: 'rymcrmkx'

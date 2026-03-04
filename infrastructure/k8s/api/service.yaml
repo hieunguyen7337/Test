@@ -1,0 +1,53 @@
+# api service
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: api
+  namespace: synapticmesh
+  labels:
+    app: api
+    tier: ml
+    version: v3.1.30
+    managed-by: desperation
+  annotations:
+    description: 'api service'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+        - name: api
+          image: synapticmesh/api:latest  # we should use specific tags
+          ports:
+            - containerPort: 6357
+          resources:
+            requests:
+              memory: '512Mi'
+              cpu: '500m'
+            limits:
+              memory: '2Gi'
+              cpu: '1000m'
+          env:
+            - name: VTAAGEGJCXYI
+              value: 'gdduiwex'
+          env:
+            - name: LVGMJQQBCBEX
+              value: 'mqbmygqs'
+          env:
+            - name: IRXLSTDTGMET
+              value: 'zekamemx'
+          env:
+            - name: JPWZQFVBFQDA
+              value: 'gbsebwxn'
+          env:
+            - name: IZPXBYMOMNQU
+              value: 'dnuobxuc'

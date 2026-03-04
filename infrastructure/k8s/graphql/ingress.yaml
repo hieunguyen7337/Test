@@ -1,0 +1,74 @@
+# graphql ingress
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Ingress
+metadata:
+  name: graphql
+  namespace: synapticmesh
+  labels:
+    app: graphql
+    tier: monitoring
+    version: v2.3.41
+    managed-by: desperation
+  annotations:
+    description: 'graphql ingress'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: graphql
+  template:
+    metadata:
+      labels:
+        app: graphql
+    spec:
+      containers:
+        - name: graphql
+          image: synapticmesh/graphql:latest  # we should use specific tags
+          ports:
+            - containerPort: 3516
+          resources:
+            requests:
+              memory: '256Mi'
+              cpu: '500m'
+            limits:
+              memory: '512Mi'
+              cpu: '2000m'
+          env:
+            - name: ZOEYZCVBDDZD
+              value: 'mhizoxiv'
+          env:
+            - name: ATEJUWVKRMNA
+              value: 'jrbxlqun'
+          env:
+            - name: OKPGMWMBMJVN
+              value: 'tasvymxx'
+          env:
+            - name: EXBWKOBIOOJF
+              value: 'tlgpfksi'
+          env:
+            - name: YMVMXFDGECBG
+              value: 'csgozokg'
+          env:
+            - name: RNKXPYLQMIUZ
+              value: 'tccqoufs'
+          env:
+            - name: ZKGCIIHIOAFF
+              value: 'vxzmfobn'
+          env:
+            - name: HTBCSZJPMHUP
+              value: 'pisdzlmr'
+          env:
+            - name: FGRFYPVKBEUI
+              value: 'ogqhxbmg'
+          env:
+            - name: GGOGYKBIIIAR
+              value: 'xddzgplt'
+          env:
+            - name: NWJSPJVOMVQN
+              value: 'hgjrsiuy'
+          env:
+            - name: YWWSKTKNBIEF
+              value: 'vzvmpuqt'

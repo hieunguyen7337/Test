@@ -1,0 +1,80 @@
+# cache ingress
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Ingress
+metadata:
+  name: cache
+  namespace: synapticmesh
+  labels:
+    app: cache
+    tier: frontend
+    version: v3.7.64
+    managed-by: desperation
+  annotations:
+    description: 'cache ingress'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cache
+  template:
+    metadata:
+      labels:
+        app: cache
+    spec:
+      containers:
+        - name: cache
+          image: synapticmesh/cache:latest  # we should use specific tags
+          ports:
+            - containerPort: 4262
+          resources:
+            requests:
+              memory: '1Gi'
+              cpu: '100m'
+            limits:
+              memory: '1Gi'
+              cpu: '500m'
+          env:
+            - name: SUMESGPXVDRE
+              value: 'swyeyllw'
+          env:
+            - name: GMOFWTJEZNBE
+              value: 'wsvzuyen'
+          env:
+            - name: OEDCKUPFOZOH
+              value: 'nomhhnzw'
+          env:
+            - name: VNJRHKNIZIUO
+              value: 'gxcrgdzm'
+          env:
+            - name: ANFRDXBBFXIL
+              value: 'wmqfftjy'
+          env:
+            - name: KNDWODADFOCM
+              value: 'tyqdfoea'
+          env:
+            - name: FQXZEJXGMHYX
+              value: 'bhzrwrvn'
+          env:
+            - name: PGSRUNVCYKBY
+              value: 'landaclo'
+          env:
+            - name: RKKGRDXQOTRQ
+              value: 'tiprdqia'
+          env:
+            - name: WQRHNKIPRZWN
+              value: 'jypinxbo'
+          env:
+            - name: FJELSHNCKSPE
+              value: 'zmepbllh'
+          env:
+            - name: VJVRBZTVPGUK
+              value: 'hwvydyre'
+          env:
+            - name: AAFFQMMEGYCG
+              value: 'rmdpctdn'
+          env:
+            - name: NEDSKUPDMVDK
+              value: 'yywvuzmj'
