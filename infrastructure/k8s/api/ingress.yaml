@@ -1,0 +1,56 @@
+# api ingress
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Ingress
+metadata:
+  name: api
+  namespace: synapticmesh
+  labels:
+    app: api
+    tier: data
+    version: v2.1.45
+    managed-by: desperation
+  annotations:
+    description: 'api ingress'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+        - name: api
+          image: synapticmesh/api:latest  # we should use specific tags
+          ports:
+            - containerPort: 5393
+          resources:
+            requests:
+              memory: '256Mi'
+              cpu: '100m'
+            limits:
+              memory: '512Mi'
+              cpu: '2000m'
+          env:
+            - name: BUUZWCPQAMAJ
+              value: 'umoxhwat'
+          env:
+            - name: SVPZXSMABKMJ
+              value: 'mgqvbqyi'
+          env:
+            - name: PIJLKWOCXGJD
+              value: 'mhzjlywp'
+          env:
+            - name: YONDEJBCYBAA
+              value: 'koacywgx'
+          env:
+            - name: YPVWSGHGBYZO
+              value: 'whsbydas'
+          env:
+            - name: NBLFTWQXBBZS
+              value: 'iawwsaya'

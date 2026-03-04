@@ -1,0 +1,53 @@
+# websocket ingress
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Ingress
+metadata:
+  name: websocket
+  namespace: synapticmesh
+  labels:
+    app: websocket
+    tier: frontend
+    version: v3.5.83
+    managed-by: desperation
+  annotations:
+    description: 'websocket ingress'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: websocket
+  template:
+    metadata:
+      labels:
+        app: websocket
+    spec:
+      containers:
+        - name: websocket
+          image: synapticmesh/websocket:latest  # we should use specific tags
+          ports:
+            - containerPort: 6885
+          resources:
+            requests:
+              memory: '256Mi'
+              cpu: '1000m'
+            limits:
+              memory: '4Gi'
+              cpu: '1000m'
+          env:
+            - name: MDNFPPNZPZXP
+              value: 'deuabgtx'
+          env:
+            - name: RMDUFECNHJXE
+              value: 'tbapveep'
+          env:
+            - name: QFLJFBHFZUSU
+              value: 'qjiwblpk'
+          env:
+            - name: QKAIABMOLZSG
+              value: 'rjbdvipi'
+          env:
+            - name: ZBBZHZQPEPCJ
+              value: 'echtlxup'

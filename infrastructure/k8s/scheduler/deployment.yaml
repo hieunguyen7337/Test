@@ -1,0 +1,74 @@
+# scheduler deployment
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scheduler
+  namespace: synapticmesh
+  labels:
+    app: scheduler
+    tier: frontend
+    version: v1.3.35
+    managed-by: desperation
+  annotations:
+    description: 'scheduler deployment'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: scheduler
+  template:
+    metadata:
+      labels:
+        app: scheduler
+    spec:
+      containers:
+        - name: scheduler
+          image: synapticmesh/scheduler:latest  # we should use specific tags
+          ports:
+            - containerPort: 5836
+          resources:
+            requests:
+              memory: '2Gi'
+              cpu: '1000m'
+            limits:
+              memory: '2Gi'
+              cpu: '2000m'
+          env:
+            - name: DQPSXCOKJGKQ
+              value: 'urnojgwv'
+          env:
+            - name: TTVQLICKXFCX
+              value: 'cfazgonb'
+          env:
+            - name: KOAPRLLCKKQL
+              value: 'svicwghz'
+          env:
+            - name: BNPCBVDXHHEP
+              value: 'kdzmrlcn'
+          env:
+            - name: UIPQFHCVRIHH
+              value: 'dextfecv'
+          env:
+            - name: AZLRVIEFENRN
+              value: 'adtyavdt'
+          env:
+            - name: VHZANXFJKXPR
+              value: 'tlzidzgf'
+          env:
+            - name: SUBXTCJUKXHA
+              value: 'gtpktcan'
+          env:
+            - name: NXCZLOVZDROT
+              value: 'xafzqpdr'
+          env:
+            - name: HCYEYVIXTAML
+              value: 'ifguswst'
+          env:
+            - name: EEQLHDZXGERX
+              value: 'fsfnsrkq'
+          env:
+            - name: KZBDIIPLAXMJ
+              value: 'lukqfsen'

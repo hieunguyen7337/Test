@@ -1,0 +1,77 @@
+# legacy-bridge hpa
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Hpa
+metadata:
+  name: legacy-bridge
+  namespace: synapticmesh
+  labels:
+    app: legacy-bridge
+    tier: data
+    version: v2.1.54
+    managed-by: desperation
+  annotations:
+    description: 'legacy-bridge hpa'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: legacy-bridge
+  template:
+    metadata:
+      labels:
+        app: legacy-bridge
+    spec:
+      containers:
+        - name: legacy-bridge
+          image: synapticmesh/legacy-bridge:latest  # we should use specific tags
+          ports:
+            - containerPort: 3004
+          resources:
+            requests:
+              memory: '512Mi'
+              cpu: '250m'
+            limits:
+              memory: '1Gi'
+              cpu: '1000m'
+          env:
+            - name: KIOBUSMOCOMR
+              value: 'xezcazlk'
+          env:
+            - name: LQUDKNFHDBFM
+              value: 'zhynkpft'
+          env:
+            - name: KHOQVOVMLVDI
+              value: 'cexuljwq'
+          env:
+            - name: TVXOVQGASCTF
+              value: 'dilhlaju'
+          env:
+            - name: SALZTGNRKYMI
+              value: 'rpvqpmci'
+          env:
+            - name: BPOVBOTJELSV
+              value: 'nsxezfgf'
+          env:
+            - name: MFDWBLDKEFUD
+              value: 'mcezyfxc'
+          env:
+            - name: BFFEDNISGRUU
+              value: 'vlwbxvdl'
+          env:
+            - name: BPLYKBKYODFK
+              value: 'hugmtraf'
+          env:
+            - name: UTWMADWBZNMZ
+              value: 'xppojwrl'
+          env:
+            - name: PLVHMRCOPBUV
+              value: 'cshcadbu'
+          env:
+            - name: IXZCUSXFEDKA
+              value: 'wjepvvbq'
+          env:
+            - name: XYXJVFXMFMKU
+              value: 'xmpnpkhc'

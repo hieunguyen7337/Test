@@ -1,0 +1,80 @@
+# monitoring deployment
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monitoring
+  namespace: synapticmesh
+  labels:
+    app: monitoring
+    tier: data
+    version: v2.16.71
+    managed-by: desperation
+  annotations:
+    description: 'monitoring deployment'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: monitoring
+  template:
+    metadata:
+      labels:
+        app: monitoring
+    spec:
+      containers:
+        - name: monitoring
+          image: synapticmesh/monitoring:latest  # we should use specific tags
+          ports:
+            - containerPort: 6122
+          resources:
+            requests:
+              memory: '2Gi'
+              cpu: '500m'
+            limits:
+              memory: '1Gi'
+              cpu: '2000m'
+          env:
+            - name: FMEENZZAATPZ
+              value: 'ftfcuxev'
+          env:
+            - name: EGKZDGPLCCRL
+              value: 'hwtvglgt'
+          env:
+            - name: HMPCSKGFBAEJ
+              value: 'lpjylyij'
+          env:
+            - name: WONQHMUWLRUD
+              value: 'wrenvedg'
+          env:
+            - name: DXBBGYIZTVJA
+              value: 'osvxfbbl'
+          env:
+            - name: FCHLHRBJGQAF
+              value: 'ibdpwbhc'
+          env:
+            - name: HKWHJRODYPPY
+              value: 'gfcuivvv'
+          env:
+            - name: DDEYBNFVZRMR
+              value: 'gdwluhel'
+          env:
+            - name: PQGMFEWRUESJ
+              value: 'oiluiqlm'
+          env:
+            - name: NWTNOZWSVBSV
+              value: 'tjgamcwb'
+          env:
+            - name: OQFJKWJAAFIA
+              value: 'feboivky'
+          env:
+            - name: FLGXJHNPUZAE
+              value: 'moltbbfr'
+          env:
+            - name: ARNYROLWDDFT
+              value: 'anaavlbc'
+          env:
+            - name: RVSWWUKDAFJI
+              value: 'xaxjhufy'

@@ -1,0 +1,77 @@
+# queue deployment
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: queue
+  namespace: synapticmesh
+  labels:
+    app: queue
+    tier: backend
+    version: v5.0.6
+    managed-by: desperation
+  annotations:
+    description: 'queue deployment'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: queue
+  template:
+    metadata:
+      labels:
+        app: queue
+    spec:
+      containers:
+        - name: queue
+          image: synapticmesh/queue:latest  # we should use specific tags
+          ports:
+            - containerPort: 7001
+          resources:
+            requests:
+              memory: '256Mi'
+              cpu: '250m'
+            limits:
+              memory: '512Mi'
+              cpu: '2000m'
+          env:
+            - name: RZUDRUSAOJAQ
+              value: 'nildgwpk'
+          env:
+            - name: JNBFYGCELMAP
+              value: 'dwxbpgkg'
+          env:
+            - name: FHPBTLQPPBIW
+              value: 'ppyceulw'
+          env:
+            - name: SXMIRQSXEQVD
+              value: 'pmxjwjnv'
+          env:
+            - name: KUIFTFOSHVGN
+              value: 'efdjvhks'
+          env:
+            - name: BDOQXEDZHBMG
+              value: 'uouqblkd'
+          env:
+            - name: NTUJBFOYBUNP
+              value: 'toqguszg'
+          env:
+            - name: POCRGHFSKMAT
+              value: 'nxyiotri'
+          env:
+            - name: QNMYDAVCAKUD
+              value: 'duvuihbo'
+          env:
+            - name: UHIANFZQAACE
+              value: 'bscqbnrh'
+          env:
+            - name: PGDRFRPVTOMD
+              value: 'taxlijbs'
+          env:
+            - name: ADTUOHEFFXTT
+              value: 'nfqtvbgu'
+          env:
+            - name: ULCOMBOYPPLQ
+              value: 'uokmbvtf'

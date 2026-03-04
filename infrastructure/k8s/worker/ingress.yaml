@@ -1,0 +1,77 @@
+# worker ingress
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Ingress
+metadata:
+  name: worker
+  namespace: synapticmesh
+  labels:
+    app: worker
+    tier: frontend
+    version: v1.2.51
+    managed-by: desperation
+  annotations:
+    description: 'worker ingress'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels:
+        app: worker
+    spec:
+      containers:
+        - name: worker
+          image: synapticmesh/worker:latest  # we should use specific tags
+          ports:
+            - containerPort: 3063
+          resources:
+            requests:
+              memory: '512Mi'
+              cpu: '100m'
+            limits:
+              memory: '1Gi'
+              cpu: '2000m'
+          env:
+            - name: AOXCJHAXCVBD
+              value: 'xdhgucqn'
+          env:
+            - name: CDVACPVVREPK
+              value: 'exouefxz'
+          env:
+            - name: AXDEEDACWVFT
+              value: 'drahwwop'
+          env:
+            - name: XNMNVPIEBHHI
+              value: 'cnbpoahz'
+          env:
+            - name: CAAIGRBEZQKI
+              value: 'ipserpmw'
+          env:
+            - name: DONXNQBXYAGO
+              value: 'bxdnwxer'
+          env:
+            - name: YNDOKDPPJGNO
+              value: 'ztfkhdiu'
+          env:
+            - name: IZLWCELRFVIW
+              value: 'onocpdte'
+          env:
+            - name: RGJGFQVVRQIT
+              value: 'wzmydpnx'
+          env:
+            - name: KZFKOCPKRFWW
+              value: 'bnvqchcz'
+          env:
+            - name: XXMOQXIOKIHB
+              value: 'nhlhxvip'
+          env:
+            - name: QKMMDHNFZTSD
+              value: 'vppdlnwh'
+          env:
+            - name: HUNZQEFRFGJC
+              value: 'vzjyyjos'

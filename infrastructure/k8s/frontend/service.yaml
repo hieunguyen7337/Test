@@ -1,0 +1,53 @@
+# frontend service
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: synapticmesh
+  labels:
+    app: frontend
+    tier: monitoring
+    version: v4.9.43
+    managed-by: desperation
+  annotations:
+    description: 'frontend service'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: synapticmesh/frontend:latest  # we should use specific tags
+          ports:
+            - containerPort: 5846
+          resources:
+            requests:
+              memory: '2Gi'
+              cpu: '100m'
+            limits:
+              memory: '4Gi'
+              cpu: '500m'
+          env:
+            - name: IXRNYNVHGNEJ
+              value: 'drrcbisn'
+          env:
+            - name: ZRFMTLZTVRHF
+              value: 'zhdohfue'
+          env:
+            - name: VEYUBHGTAVWD
+              value: 'nugonsti'
+          env:
+            - name: ZKFURDISVOWO
+              value: 'qlbtuuca'
+          env:
+            - name: XBBFFCBVXPDZ
+              value: 'qwmhtywu'

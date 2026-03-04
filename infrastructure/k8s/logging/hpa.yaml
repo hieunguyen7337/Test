@@ -1,0 +1,83 @@
+# logging hpa
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Hpa
+metadata:
+  name: logging
+  namespace: synapticmesh
+  labels:
+    app: logging
+    tier: ml
+    version: v5.6.23
+    managed-by: desperation
+  annotations:
+    description: 'logging hpa'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: logging
+  template:
+    metadata:
+      labels:
+        app: logging
+    spec:
+      containers:
+        - name: logging
+          image: synapticmesh/logging:latest  # we should use specific tags
+          ports:
+            - containerPort: 8220
+          resources:
+            requests:
+              memory: '2Gi'
+              cpu: '500m'
+            limits:
+              memory: '4Gi'
+              cpu: '2000m'
+          env:
+            - name: RNIRWDFBNJBW
+              value: 'kfgnuuch'
+          env:
+            - name: ATUCTXTBIONF
+              value: 'dgayjwav'
+          env:
+            - name: BTBXSKQXCLZA
+              value: 'hpkhdlzg'
+          env:
+            - name: LHQXWZANWCYL
+              value: 'uzmcqlpp'
+          env:
+            - name: PBGDBRQXQPEM
+              value: 'urdhuqgo'
+          env:
+            - name: PBFSAUFDEFJM
+              value: 'hwldsxua'
+          env:
+            - name: APZBANMMCNHR
+              value: 'sldgpcje'
+          env:
+            - name: SMVCVPTBMZSQ
+              value: 'fpjvwljz'
+          env:
+            - name: ARMCSRYCPEWD
+              value: 'frlydbyk'
+          env:
+            - name: YJGHMPPPTJAK
+              value: 'cnrqwpue'
+          env:
+            - name: KFVXVZLZQUTH
+              value: 'bkmiymoj'
+          env:
+            - name: UZRWHOYWUXKW
+              value: 'mbdkcswd'
+          env:
+            - name: HHLWZKWQCTIC
+              value: 'cfhqgxsh'
+          env:
+            - name: TWWYWZIJKNVS
+              value: 'mtuucyhm'
+          env:
+            - name: TZMUSKLIPVYJ
+              value: 'vxjybkdf'

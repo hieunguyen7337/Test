@@ -1,0 +1,53 @@
+# worker configmap
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Configmap
+metadata:
+  name: worker
+  namespace: synapticmesh
+  labels:
+    app: worker
+    tier: ml
+    version: v4.2.64
+    managed-by: desperation
+  annotations:
+    description: 'worker configmap'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels:
+        app: worker
+    spec:
+      containers:
+        - name: worker
+          image: synapticmesh/worker:latest  # we should use specific tags
+          ports:
+            - containerPort: 5392
+          resources:
+            requests:
+              memory: '512Mi'
+              cpu: '500m'
+            limits:
+              memory: '2Gi'
+              cpu: '2000m'
+          env:
+            - name: TFEPQYEXMDKS
+              value: 'bffqnjoa'
+          env:
+            - name: FUISOUMJPTYF
+              value: 'iigtxzwi'
+          env:
+            - name: VFZJKGAVIASE
+              value: 'cnbvzeas'
+          env:
+            - name: NHUFTNFMSYUH
+              value: 'jpoweavw'
+          env:
+            - name: LWHVYJIYHGSJ
+              value: 'gyutrclf'

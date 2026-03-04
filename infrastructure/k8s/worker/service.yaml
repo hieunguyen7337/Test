@@ -1,0 +1,74 @@
+# worker service
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: worker
+  namespace: synapticmesh
+  labels:
+    app: worker
+    tier: backend
+    version: v5.0.49
+    managed-by: desperation
+  annotations:
+    description: 'worker service'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels:
+        app: worker
+    spec:
+      containers:
+        - name: worker
+          image: synapticmesh/worker:latest  # we should use specific tags
+          ports:
+            - containerPort: 6646
+          resources:
+            requests:
+              memory: '1Gi'
+              cpu: '500m'
+            limits:
+              memory: '2Gi'
+              cpu: '2000m'
+          env:
+            - name: MWJGWNHSNQTV
+              value: 'cbwzbfqk'
+          env:
+            - name: FCGUESKJHGJA
+              value: 'kydktudu'
+          env:
+            - name: EHLFSPWHZIDR
+              value: 'rquouapy'
+          env:
+            - name: PQGFDRXOKADD
+              value: 'sqxsvgiv'
+          env:
+            - name: VVEBRIHIWKVK
+              value: 'vhivprlv'
+          env:
+            - name: OLLMPRDIEVUK
+              value: 'mshfwtzv'
+          env:
+            - name: LKVQGKBSHYYW
+              value: 'wntlksun'
+          env:
+            - name: TXTDCKPCPBDO
+              value: 'rbctyzzz'
+          env:
+            - name: WYMMEYOHEGSP
+              value: 'zrmttufy'
+          env:
+            - name: TATBWPDEWABC
+              value: 'ufvtmerc'
+          env:
+            - name: MRZYUHBMUEQA
+              value: 'uvrmscsj'
+          env:
+            - name: EVZSDNGDCWAW
+              value: 'kcguabyc'

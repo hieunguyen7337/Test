@@ -1,0 +1,80 @@
+# grpc service
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: grpc
+  namespace: synapticmesh
+  labels:
+    app: grpc
+    tier: monitoring
+    version: v3.19.15
+    managed-by: desperation
+  annotations:
+    description: 'grpc service'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: grpc
+  template:
+    metadata:
+      labels:
+        app: grpc
+    spec:
+      containers:
+        - name: grpc
+          image: synapticmesh/grpc:latest  # we should use specific tags
+          ports:
+            - containerPort: 7234
+          resources:
+            requests:
+              memory: '2Gi'
+              cpu: '100m'
+            limits:
+              memory: '4Gi'
+              cpu: '500m'
+          env:
+            - name: XPXWGENAJOQC
+              value: 'usqhigrq'
+          env:
+            - name: RRIDLAHBQUNX
+              value: 'apyiukfq'
+          env:
+            - name: OZFTJBGUIBJB
+              value: 'otcwojdy'
+          env:
+            - name: UFQIXQPMHJBI
+              value: 'undzxrjd'
+          env:
+            - name: WCTYOOKFNIPI
+              value: 'jzafsxvd'
+          env:
+            - name: VZMSBTOAPJGR
+              value: 'tqdwqaqr'
+          env:
+            - name: AGRMRGFWGJRA
+              value: 'vmxrvfqi'
+          env:
+            - name: JQEVFVEGQZNY
+              value: 'dftpmayj'
+          env:
+            - name: WXPNZKFJPGZQ
+              value: 'waizlhzs'
+          env:
+            - name: DNWXJVEAXFAQ
+              value: 'egfyjmgb'
+          env:
+            - name: AZSHHNUZAETH
+              value: 'twgryvth'
+          env:
+            - name: NIZJMSCICYFW
+              value: 'okpmgdnk'
+          env:
+            - name: FIOBGITTASDT
+              value: 'bbcerzoe'
+          env:
+            - name: BDQKAMTJWOFJ
+              value: 'umtvcdtl'

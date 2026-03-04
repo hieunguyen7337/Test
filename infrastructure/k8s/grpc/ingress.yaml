@@ -1,0 +1,59 @@
+# grpc ingress
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Ingress
+metadata:
+  name: grpc
+  namespace: synapticmesh
+  labels:
+    app: grpc
+    tier: ml
+    version: v1.2.52
+    managed-by: desperation
+  annotations:
+    description: 'grpc ingress'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: grpc
+  template:
+    metadata:
+      labels:
+        app: grpc
+    spec:
+      containers:
+        - name: grpc
+          image: synapticmesh/grpc:latest  # we should use specific tags
+          ports:
+            - containerPort: 6111
+          resources:
+            requests:
+              memory: '1Gi'
+              cpu: '250m'
+            limits:
+              memory: '4Gi'
+              cpu: '500m'
+          env:
+            - name: PGDWZLCSLRAL
+              value: 'lztnvqlp'
+          env:
+            - name: TTHQDGTAOZVM
+              value: 'aizkxzbf'
+          env:
+            - name: HDCNPKXAWJVP
+              value: 'qeffrnck'
+          env:
+            - name: JTHYXUEMRIHS
+              value: 'tllpsvuh'
+          env:
+            - name: JSYEEHVUJSKY
+              value: 'dwalhrpi'
+          env:
+            - name: TEMVTNMBMGUY
+              value: 'vaofnftu'
+          env:
+            - name: BHQNHJRUFPQR
+              value: 'ffvsmpfj'

@@ -1,0 +1,59 @@
+# ml-api deployment
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml-api
+  namespace: synapticmesh
+  labels:
+    app: ml-api
+    tier: backend
+    version: v3.20.60
+    managed-by: desperation
+  annotations:
+    description: 'ml-api deployment'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ml-api
+  template:
+    metadata:
+      labels:
+        app: ml-api
+    spec:
+      containers:
+        - name: ml-api
+          image: synapticmesh/ml-api:latest  # we should use specific tags
+          ports:
+            - containerPort: 6312
+          resources:
+            requests:
+              memory: '1Gi'
+              cpu: '100m'
+            limits:
+              memory: '4Gi'
+              cpu: '1000m'
+          env:
+            - name: BHFUQNIYTAEH
+              value: 'kugvbryu'
+          env:
+            - name: ZRNVCMCLRGIQ
+              value: 'tybyrhis'
+          env:
+            - name: LZXABZAFADEJ
+              value: 'cijsnlph'
+          env:
+            - name: OEOYUAVTWSND
+              value: 'ulvqxvzu'
+          env:
+            - name: ZXENZRVLSVLK
+              value: 'swsbdond'
+          env:
+            - name: RMXCHVQKFASK
+              value: 'acrefweq'
+          env:
+            - name: BWEAOFOYKWOQ
+              value: 'tvcjtize'

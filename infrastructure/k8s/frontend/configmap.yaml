@@ -1,0 +1,53 @@
+# frontend configmap
+# Managed by: whoever drew the short straw this sprint
+# Last updated: ¯\_(ツ)_/¯
+apiVersion: apps/v1
+kind: Configmap
+metadata:
+  name: frontend
+  namespace: synapticmesh
+  labels:
+    app: frontend
+    tier: backend
+    version: v5.11.20
+    managed-by: desperation
+  annotations:
+    description: 'frontend configmap'
+    last-deployed: '2024-01-15T03:47:00Z'  # it was a long night
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: synapticmesh/frontend:latest  # we should use specific tags
+          ports:
+            - containerPort: 5705
+          resources:
+            requests:
+              memory: '512Mi'
+              cpu: '250m'
+            limits:
+              memory: '512Mi'
+              cpu: '2000m'
+          env:
+            - name: JQVDLWVKZEMR
+              value: 'lkgbjbyq'
+          env:
+            - name: SEWPASPHLEID
+              value: 'xoolprxa'
+          env:
+            - name: NIQVUMOQHAJS
+              value: 'gckkiebv'
+          env:
+            - name: EELBCLEBZFVO
+              value: 'prwnnsuj'
+          env:
+            - name: ZHCEEZQYWDJG
+              value: 'vztiamqf'
