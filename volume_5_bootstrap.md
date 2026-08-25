@@ -5,178 +5,305 @@ This is the **canonical lightweight entrypoint** for researching Volume Five of:
 **《人在崩坏三，当她们的英雄》 — 黄金森林**  
 Common English project title: ***People in Honkai Impact 3rd, Be Their Heroes***
 
-Its purpose is to direct a fresh research agent to the authoritative continuity files **without copying or compressing those files into another summary**.
+The purpose of this file is to make a fresh research run **fail safely instead of hallucinating** when continuity files or novel prose cannot be accessed.
 
-## Activation
+---
 
-If the user asks to proceed with Volume Five research, begin the research directly. Do not ask the user to paste the earlier summaries again.
+## 0. Absolute rule: source access comes before story generation
 
-Research **Volume Five only** and produce a standalone, detailed English **Volume Five Full Story and Continuity Guide** suitable as the source of truth for later translation and Volume Six research.
+**DO NOT begin writing the Volume Five summary until the Source Access Gate below has passed.**
 
-## Authoritative continuity files
+If required sources cannot be retrieved, the correct output is a short **SOURCE ACCESS FAILURE REPORT**, not a reconstructed story.
 
-Read these files from their RAW GitHub URLs. They are the continuity source of truth for the state entering Volume Five:
+Never fill inaccessible material from:
+
+- chapter titles alone;
+- Honkai canon knowledge;
+- model memory;
+- machine-translation guesses;
+- nearby chapters;
+- plausible connective narrative;
+- an earlier model-generated recap of these guides.
+
+**No prose = no story claim. No evidence = unresolved.**
+
+---
+
+## 1. Authoritative continuity files
+
+These four full guides are the source of truth for the state entering Volume Five. Retrieve them directly rather than replacing them with a new compressed recap.
 
 1. **Volume One**  
    https://raw.githubusercontent.com/hieunguyen7337/Test/main/volume_1_summary.md
+
 2. **Volume Two**  
    https://raw.githubusercontent.com/hieunguyen7337/Test/main/volume_2_summary.md
+
 3. **Volume Three**  
    https://raw.githubusercontent.com/hieunguyen7337/Test/main/volume_3_summary.md
+
 4. **Volume Four**  
    https://raw.githubusercontent.com/hieunguyen7337/Test/main/volume_4_summary.md
 
-Detailed research-method / edge-case reference:
+Additional detailed methodology / edge-case reference:
 
 5. **Full Volume-Five research bootstrap**  
    https://raw.githubusercontent.com/hieunguyen7337/Test/main/volume_5_deep_research_bootstrap.md
 
-### Context-loading rule — extremely important
+If a RAW GitHub URL fails, try the equivalent GitHub blob page and web-search the exact repository + filename before declaring failure. Do not silently substitute model memory for an inaccessible guide.
 
-**Do not replace the four guides above with a newly generated condensed recap.** Do not first paste all four into the prompt and then rely on a model-written compression of them.
+### Context-loading rule
+
+Do **not** paste all four guides into a fresh prompt and then generate a shorter summary of them. That creates a lossy second source of truth.
 
 Instead:
 
-- read this lightweight bootstrap first;
-- retrieve the relevant full guide(s) directly from the RAW links;
-- revisit those guides whenever a continuity-sensitive fact matters;
-- use the detailed research bootstrap when its methodology, completeness rules, or edge cases are needed;
-- treat the linked full guides as higher authority than any abbreviated recollection produced during the current research session.
+- open the relevant full guide directly when a continuity fact matters;
+- revisit the guide whenever uncertain;
+- treat the linked guide as higher authority than any temporary notes or recap produced during the research session.
 
-This rule exists to prevent context overflow, summary-of-summary drift, and hallucinated continuity.
+---
 
-## Volume-Five boundary
+## 2. SOURCE ACCESS GATE — mandatory before research
 
-The current verified handoff expects:
+Before producing any Volume-Five narrative, verify all of the following.
 
-- **Volume Five begins at chapter 386**;
-- chapter 386: `重回现文明，与众女的重逢` — “Return to the Current Era, Reunion with the Girls”;
-- **Volume Six begins at chapter 528**;
-- expected Volume-Five range: **chapters 386–527 inclusive**.
+### A. Continuity access test
 
-Before writing the final guide, independently verify the current Faloo directory. Faloo's displayed volume structure outranks this seed if it differs.
+Successfully retrieve **all four** Volume One–Four guides.
 
-## Source hierarchy
+In private working notes, record for each guide:
 
-Use this order:
+- successful URL/access path;
+- one distinctive heading or continuity fact actually read from that file;
+- its volume/chapter boundary.
 
-1. **Faloo / 飞卢 official directory and chapter pages** — authoritative for volume headings, displayed chapter numbers, titles, and prose when accessible.
-2. **Chinese raw-text mirrors** such as TRXS and FFXS — use for prose when Faloo text is inaccessible; align by Faloo chapter number + title, not mirror-page arithmetic.
-3. **Later chapters of the same novel** — may resolve a genuine ambiguity; label the result as later-confirmed and do not back-project later character knowledge.
-4. **WTR-LAB / other machine translations** — navigation/search aid only.
-5. **Honkai canon references** — terminology aid only; never overwrite fanfic-specific altered continuity.
-6. Discussions/comments — useful for navigation or interpretation, not a substitute for raw prose when raw prose is available.
+If any of the four guides cannot be read after reasonable alternate-access attempts, **STOP** and return `SOURCE ACCESS FAILURE — CONTINUITY GUIDE UNAVAILABLE` with the failed URL(s). Do not write a Volume-Five summary.
 
-Known source anchors:
+### B. Volume-Five prose access test
 
-- https://wap.faloo.com/booklist_1369369.html
-- https://wap.faloo.com/1369369.html
-- https://www.trxs.cc/tongren/11463.html
-- https://m.ffxs8.com/khjj/20662/
+Before committing to a full-volume reconstruction, retrieve **actual Chinese prose**, not just directory entries or chapter titles, for at least:
 
-Search in **Chinese first** wherever possible. Write the final guide in **English**.
+- chapter 386;
+- at least one representative middle-volume chapter;
+- chapter 527 or the verified final chapter of Volume Five.
 
-## Research standard
+Then identify at least one workable Chinese prose source/mirror that can be searched or traversed for the rest of the volume.
 
-Reconstruct **causality**, not merely a sequence of events:
+If Faloo prose is paywalled/inaccessible, search Chinese mirrors aggressively using exact Chinese title strings, chapter numbers, distinctive phrases, and alternate mirror domains.
 
-**starting problem → motivation → mechanism → event → immediate consequence → permanent continuity consequence → changed later options**
+Known starting points:
 
-For every important claim, determine whether it is:
+- Faloo directory: https://wap.faloo.com/booklist_1369369.html
+- Faloo novel page: https://wap.faloo.com/1369369.html
+- TRXS: https://www.trxs.cc/tongren/11463.html
+- FFXS: https://m.ffxs8.com/khjj/20662/
 
-- **Direct Volume-Five fact** — directly stated or demonstrated in Volume Five;
-- **Safe inference** — tightly follows from source mechanics but is not directly stated;
-- **Later-confirmed consequence** — clarified by Volume Six or later.
+Other Chinese mirrors are allowed when necessary. Cross-check numbering/title alignment against Faloo.
 
-Do not promote inference into fact. Do not invent missing list entries simply to make bookkeeping look complete.
+If actual prose for the volume cannot be obtained with enough coverage to support a detailed guide, **STOP** and return `SOURCE ACCESS FAILURE — VOLUME FIVE PROSE UNAVAILABLE`. Do not infer the missing story from titles.
 
-## Anti-hallucination bookkeeping
+### C. Boundary verification
 
-Never flatten all powers into one list. Keep separate whenever relevant:
+The current handoff expects:
+
+- Volume Four ends at chapter **385**;
+- Volume Five = chapters **386–527 inclusive**;
+- Volume Six begins at chapter **528**.
+
+Verify this against the official Faloo directory before proceeding. If Faloo disagrees, report the discrepancy and use the verified boundary.
+
+Only after A, B, and C pass may story synthesis begin.
+
+---
+
+## 3. Evidence hierarchy
+
+Use sources in this order:
+
+1. **Faloo official directory/pages** — authoritative for volume headings, chapter numbering, and titles.
+2. **Actual Chinese chapter prose** from Faloo or aligned Chinese mirrors — authoritative for story events, dialogue, mechanisms, relationships, powers, rewards, and consequences.
+3. **Volume One–Four continuity guides above** — authoritative handoff for prior fanfic continuity.
+4. **Later chapters of the same novel** — may resolve ambiguity; label as **later-confirmed** and do not pretend it was stated in Volume Five.
+5. **WTR-LAB / machine translations** — navigation or translation aid only.
+6. **Honkai canon references** — terminology aid only; never overwrite fanfic-specific continuity.
+
+For uncertain material, distinguish explicitly:
+
+- **Direct Volume-Five fact**
+- **Safe inference**
+- **Later-confirmed fact**
+- **Unresolved / source-bounded**
+
+---
+
+## 4. NO PROSE = NO CLAIM rule
+
+A chapter title may establish only:
+
+- chapter number;
+- chapter title;
+- a rough navigation/search clue.
+
+A chapter title **cannot by itself establish**:
+
+- what actually happened;
+- motivation or causality;
+- who won a battle;
+- death or survival;
+- relationship status;
+- confession, engagement, marriage, or rejection;
+- power/core/authority acquisition or loss;
+- artifact ownership;
+- system rewards;
+- memory changes;
+- faction allegiance;
+- identity equivalence;
+- timeline effects.
+
+Do not turn suggestive or comedic chapter titles into literal plot events unless the prose confirms them.
+
+---
+
+## 5. Citation gate — mandatory
+
+The final guide must contain inline source citations/links sufficient for another researcher to verify it.
+
+At minimum:
+
+- every major chronological block must cite actual Volume-Five prose;
+- every power/core/authority change must cite prose;
+- every system reward/trait/upgraded function must cite prose;
+- every major relationship-state change must cite prose;
+- every death, survival, identity reveal, faction switch, memory alteration, or timeline rewrite must cite prose;
+- prior-volume continuity claims should point back to the relevant full continuity guide when material to the conclusion.
+
+**A section that cannot be supported by sources must be marked unresolved or omitted. It must not be completed by invention.**
+
+A generic `Sources:` paragraph at the end is not enough. Citations must be attached to the claims/sections they support.
+
+Before finalizing, perform a citation audit: if a major factual paragraph has no evidence trail, fix it or remove/mark it unresolved.
+
+---
+
+## 6. Continuity firewalls
+
+### Power / asset bookkeeping
+
+Keep distinct at all times:
 
 - bodily Herrscher cores;
-- cores held outside the body;
-- Divine-Key / Blank-Key / other vessel cores;
-- full authorities available without bodily integration;
-- fragmentary authorities;
+- external cores;
+- Divine-Key cores;
+- full authorities;
+- authority fragments;
 - residual/system-converted authorities;
-- special existence-authorities such as Origin/Finality;
+- Origin / Finality phenomena;
 - stigmata;
 - MANTIS / Chimera biology;
-- Tianyuan state;
+- Tianyuan or other special states;
+- Divine Keys and ordinary equipment;
 - system traits and affinity rewards;
-- learned techniques;
-- weapons/equipment;
+- learned skills;
 - temporary transformations;
-- parallel-world-only assets;
-- clones / constructed bodies / summons.
+- branch-only assets;
+- constructed bodies / summons.
 
-Likewise, do not merge different memory/time mechanisms. Keep separate:
+**Authority access does not automatically mean bodily core ownership. Similar names do not make two mechanics identical.**
+
+### Memory / time / history bookkeeping
+
+Keep distinct:
 
 - ordinary autobiographical memory;
 - system-fabricated insertion memories;
-- Bai's selective old/meta Elysia-foreknowledge seal;
-- reset-loop active-memory suppression for others;
+- Bai's selective Elysia meta-memory seal;
+- reset suppression for others;
 - Bai's continuity across resets;
 - hyperthymesia;
-- Fenghuang Down memory archive/offloading;
-- Elysia's sealed reincarnation memories;
-- final recovery/release of loop memories;
-- system cross-era identity/cognitive protection;
-- parallel-Bai memory transfer;
-- timeline rewrite changing Current-Era autobiographical history.
+- Fenghuang Down archives;
+- Elysia's sealed reincarnation/loop memories;
+- later memory recovery;
+- cross-era identity protection;
+- branch-Bai memory transfer;
+- rewritten-timeline autobiographical updates.
+
+Do not state that characters remember or forget an altered timeline without prose evidence.
 
 ### Parallel-world firewall
 
-**Volume Four chapters 371–381 occur in a paradox-generated compatible parallel Current Era.** Do not assign that branch cast's memories, deaths, loyalties, politics, or relationships to Bai's original Current Era unless Volume Five explicitly propagates them.
+Volume Four chapters **371–381** concern a paradox-generated compatible parallel Current Era. Do **not** transfer that branch's deaths, loyalties, romances, politics, powers, or experiences to the original Current Era unless Volume Five explicitly propagates them.
 
-Do not collapse distinct identities/personality states such as:
+### Identity / relationship firewall
 
-- Sirin vs K-423's HoV personality;
-- biological Kiana/Durandal vs K-423;
-- Mei vs Thunder Queen;
-- White Seele vs Dark Seele;
-- Previous-Era Xier vs Current-Era Seele;
-- branch-world counterparts vs original-world characters.
+Do not collapse distinct people/personas/counterparts, including:
 
-## Relationship bookkeeping
+- Sirin vs. K-423's Herrscher of the Void persona;
+- biological Kiana vs. K-423;
+- Mei vs. Thunder Queen/persona distinctions where the fanfic treats them separately;
+- White Seele vs. Dark Seele;
+- Previous-Era Xier/Seele counterparts vs. Current-Era Seele;
+- branch-world counterparts vs. original-world characters.
 
-For every major relationship materially changed in Volume Five, preserve:
+For each major relationship, record only what the prose supports: origin, turning point, relationship type, reciprocity, acceptance/consent where relevant, who knows, and end-of-volume state.
 
-- relationship origin;
-- turning point(s);
-- whether the bond is familial, filial, maternal, romantic, comradeship, devotion, rivalry, or mixed;
-- whether affection is explicitly reciprocal;
-- whether Bai explicitly accepts it;
-- who knows or consents;
-- whether a claim exists only in a joke/chapter title;
-- exact end-of-volume state.
+---
 
-Do not replace precise relationship states with vague labels such as “likes him” or “harem member.”
+## 7. Research method
 
-## Required final deliverable
+Research Chinese sources first where possible.
 
-The final Volume-Five guide should include, at minimum:
+Reconstruct causality rather than making an event list:
 
-- scope, sources, and exact Faloo volume boundary;
-- standalone entering continuity state;
-- concise chapter-range arc map;
-- **causal architecture before the long chronology**;
-- full chronological reconstruction with causes/mechanisms/consequences;
-- battles and major interventions reference;
-- Bai Ge's power/body/system progression;
-- cores/authorities/Divine Keys/artifact ownership ledger;
-- character and relationship end states;
-- faction state entering Volume Six;
-- altered-history and causal rules established/clarified;
-- system/time/memory/identity/persistence mechanics ledger;
-- translation terminology and continuity cautions;
-- settled facts vs genuine source-bounded limits;
-- end-of-volume continuity ledger for translating Volume Six;
-- compact translator-facing synthesis.
+**starting problem → motivation → mechanism → event → immediate consequence → permanent continuity consequence**
 
-When a critical Volume-Five fact remains unclear, search later chapters for confirmation before leaving a hole. Label later confirmation correctly.
+Work arc by arc and chapter range by chapter range. Do not leap from a few sampled chapters to a full-volume claim.
 
-## Final guardrail
+Use later chapters only to resolve ambiguity, and mark that evidence as later-confirmed.
 
-**The RAW Volume One–Four guides are authoritative external reference documents. Do not silently replace them with Honkai canon, model memory, or a newly generated compressed recap. When in doubt, reopen the relevant linked guide and verify the fact directly.**
+Never normalize the fanfic to official Honkai canon when the fanfic differs.
+
+---
+
+## 8. Required final deliverable
+
+After the Source Access Gate passes, produce a detailed English **Volume Five Full Story and Continuity Guide** containing:
+
+1. exact verified volume boundary and source method;
+2. a brief source-access statement naming the prose sources actually used;
+3. entering continuity state from Volumes One–Four;
+4. concise arc map;
+5. causal architecture before the long chronology;
+6. full chronological reconstruction with inline citations;
+7. battles/interventions and their consequences;
+8. Bai Ge body/power/system progression;
+9. cores/authorities/Divine Keys/artifact ownership ledger;
+10. system rewards, traits, upgrades, and functions;
+11. character and relationship end states;
+12. faction status entering Volume Six;
+13. altered-history / causal rules;
+14. system/time/memory/identity mechanics ledger;
+15. translation terminology and cautions;
+16. direct facts vs safe inference vs later-confirmed vs unresolved limits;
+17. end-of-volume continuity ledger for Volume Six;
+18. concise synthesis.
+
+The guide should be comprehensive, but **completeness never outranks evidence**.
+
+---
+
+## 9. Final anti-hallucination check
+
+Before submitting, ask:
+
+- Did I actually read Volume-Five prose for every major arc I summarized?
+- Can I trace every major factual claim to prose or an authoritative continuity guide?
+- Did I accidentally derive events from chapter titles?
+- Did I invent connective tissue because a chapter was inaccessible?
+- Did I merge identities, powers, cores, memories, timelines, or relationships that the sources keep separate?
+- Did I state uncertainty honestly rather than force a complete ledger?
+- Are citations attached to the claims they support?
+
+If any answer reveals unsupported synthesis, correct it before submission.
+
+**The required behavior under source failure is to stop and report the failure — never to hallucinate a complete Volume-Five guide.**
